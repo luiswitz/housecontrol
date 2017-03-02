@@ -1,3 +1,3 @@
 # README
 
-An APP to control the house expenses
+An APP to control the house expenses collaboratively
