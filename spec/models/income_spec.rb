@@ -26,5 +26,10 @@ RSpec.describe Income, type: :model do
       expect(@income).to_not be_valid
     end
 
+    it "cannot be valid without an user" do
+      @income.user = nil
+      expect(@income).to_not be_valid
+    end
+
   end
 end
