@@ -1,0 +1,29 @@
+<h1>Nova Receita</h1>
+
+<%= form_for @income do |f| %>
+  <div class="">
+    <%= f.label :descritption %>
+    <%= f.text_field :descritption %>
+  </div>
+
+  <div class="">
+    <%= f.label :value %>
+    <%= f.number_field :value %>
+  </div>
+
+  <div class="">
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div class="">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="">
+    <%= f.label :received %>
+    <%= f.check_box :received %>
+  </div>
+
+<% end %>

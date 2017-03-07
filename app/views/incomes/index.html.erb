@@ -1,0 +1,24 @@
+<h1>Receitas</h1>
+
+<table>
+    <thead>
+      <tr>
+        <th>Recebido</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Data</th>
+        <th>Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @incomes.each do |income| %>
+        <tr>
+          <td><%= income.received %></td>
+          <td><%= income.description %></td>
+          <td><%= income.value %></td>
+          <td><%= income.date %></td>
+          <td><%= income.category.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
