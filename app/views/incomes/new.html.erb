@@ -17,8 +17,8 @@
   </div>
 
   <div class="">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.label :category_id %>
+    <%= f.select :category_id, current_user.categories.income.collect {|c| [ c.name, c.id ] }, {prompt: 'Selecione uma categoria' } %>
   </div>
 
   <div class="">
