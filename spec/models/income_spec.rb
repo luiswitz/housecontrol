@@ -7,7 +7,7 @@ RSpec.describe Income, type: :model do
     end
 
     it "cannot be valid without a description" do
-      @income.descritption = nil
+      @income.description = nil
       expect(@income).to_not be_valid
     end
 

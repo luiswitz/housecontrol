@@ -49,7 +49,7 @@ describe "navigate" do
     end
 
     it "can be created from new form page" do
-      fill_in 'income[descritption]', with: 'Some Income'
+      fill_in 'income[description]', with: 'Some Income'
       fill_in 'income[value]', with: 99.9
       fill_in 'income[date]', with: Date.today
       select "#{@category.name}", :from => "income[category_id]"

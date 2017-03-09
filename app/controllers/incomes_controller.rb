@@ -25,7 +25,7 @@ class IncomesController < ApplicationController
   private
 
     def income_params
-        params.require(:income).permit(:descritption, :value, :date, :category_id, :received)
+        params.require(:income).permit(:description, :value, :date, :category_id, :received)
     end
 
     def set_income

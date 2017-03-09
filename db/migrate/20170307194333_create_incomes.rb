@@ -1,7 +1,7 @@
 class CreateIncomes < ActiveRecord::Migration[5.0]
   def change
     create_table :incomes do |t|
-      t.string :descritption
+      t.string :description
       t.decimal :value
       t.date :date
       t.references :category, foreign_key: true
