@@ -1,0 +1,22 @@
+<h1>Despesas</h1>
+
+<table>
+  <thead>
+    <th>Pago</th>
+    <th>Desrição</th>
+    <th>Valor</th>
+    <th>Data</th>
+    <th>Categoria</th>
+  </thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.is_payed? %></td>
+        <td><%= expense.description %></td>
+        <td><%= expense.value %></td>
+        <td><%= expense.date %></td>
+        <td><%= expense.category.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
