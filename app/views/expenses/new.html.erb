@@ -1,1 +1,32 @@
 <h1>Nova Despesa</h1>
+
+<%= form_for @expense do |f| %>
+  <div class="">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="">
+    <%= f.label :value %>
+    <%= f.number_field :value %>
+  </div>
+
+  <div class="">
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </div>
+
+  <div class="">
+    <%= f.label :category %>
+    <%= f.select :category_id, current_user.categories.expense.collect {|c| [ c.name, c.id ] }, {prompt: 'Selecione uma categoria' } %>
+  </div>
+
+  <div class="">
+    <%= f.label 'Pago' %>
+    <%= f.check_box :is_payed %>
+  </div>
+
+  <div class="">
+    <%= f.submit "Adicionar" %>
+  </div>
+<% end %>
