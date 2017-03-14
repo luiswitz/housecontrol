@@ -27,4 +27,12 @@ describe "navigate" do
       expect(page).to have_content(/Normal|expense/)
     end
   end
+
+  describe "new" do
+    it "should has a link from the expenses list" do
+      visit expenses_path
+      click_link "Nova"
+      expect(page.status_code).to eq(200)
+    end
+  end
 end
