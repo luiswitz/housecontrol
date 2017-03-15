@@ -1,8 +1,8 @@
 class ExpensesController < ApplicationController
-  before_action :set_income, only: [:edit]
+  before_action :set_expense, only: [:edit]
 
   def index
-    @expenses = Expense.all
+    @expenses = current_user.expenses
   end
 
   def new
@@ -29,7 +29,7 @@ class ExpensesController < ApplicationController
         params.require(:expense).permit(:description, :value, :date, :category_id, :is_payed)
     end
 
-    def set_income
+    def set_expense
       @expense = Expense.find(params[:id])
     end
 

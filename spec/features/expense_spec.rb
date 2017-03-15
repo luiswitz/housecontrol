@@ -21,8 +21,8 @@ describe "navigate" do
     end
 
     it "has a list of Expenses" do
-      expense1 = FactoryGirl.create(:expense)
-      expense2 = FactoryGirl.create(:expense)
+      expense1 = FactoryGirl.create(:expense, user: @user)
+      expense2 = FactoryGirl.create(:expense, user: @user)
       visit expenses_path
       expect(page).to have_content(/Normal|expense/)
     end
