@@ -1,33 +1,3 @@
 <h1>Nova Receita</h1>
-
-<%= form_for @income do |f| %>
-  <div class="">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="">
-    <%= f.label :value %>
-    <%= f.number_field :value %>
-  </div>
-
-  <div class="">
-    <%= f.label :date %>
-    <%= f.date_field :date %>
-  </div>
-
-  <div class="">
-    <%= f.label :category_id %>
-    <%= f.select :category_id, current_user.categories.income.collect {|c| [ c.name, c.id ] }, {prompt: 'Selecione uma categoria' } %>
-  </div>
-
-  <div class="">
-    <%= f.label :received %>
-    <%= f.check_box :received %>
-  </div>
-
-  <div class="">
-    <%= f.submit "Adicionar" %>
-  </div>
-
-<% end %>
+<hr>
+<%= render 'form' %>
