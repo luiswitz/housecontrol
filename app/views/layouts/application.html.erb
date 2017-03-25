@@ -7,8 +7,13 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= yield %>
+    <div class="container-fluid" id="main">
+      <%= render 'shared/sidebar' if user_signed_in?  %>
+      <div class="row">
+        <div class="col-md-10" id="content">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
