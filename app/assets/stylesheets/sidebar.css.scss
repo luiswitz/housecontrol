@@ -4,6 +4,7 @@
   width: 200px;
   height: 100%;
   font-size: 1.1em;
+  margin-top: 50px;
 
   ul {
     margin: 0;
@@ -31,7 +32,6 @@
   .selected {
     border-right: solid 2px #337ab7;
     a {
-      // font-weight: bold;
       color: #24292e;
     }
   }
