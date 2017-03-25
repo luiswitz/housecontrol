@@ -2,6 +2,7 @@
 @import 'bootstrap';
 @import 'sidebar';
 @import 'header';
+@import 'font-awesome';
 
 html,
 body,
@@ -10,9 +11,10 @@ body,
     width: 100%;
     padding: 0;
     margin: 0;
+    background-color: #252830;
+    color: #cfd2da;
 }
 
 #content {
-  margin-top: 50px;
-  padding: 20px 25px 10px 25px;
+  padding: 15px 0px 10px 200px;
 }

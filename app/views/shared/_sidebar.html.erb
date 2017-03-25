@@ -1,11 +1,12 @@
 <nav id="sidebar">
   <ul>
-    <li> <i class="fa fa-user"></i> <%= link_to 'Dashboard', '#' %></li>
-    <li class="selected"><%= link_to 'Despesas', expenses_path %></li>
-    <li><%= link_to 'Receitas', incomes_path %></li>
-    <li><%= link_to 'Categorias', '#' %></li>
-    <li><%= link_to 'Cartões de Crédito', '#' %></li>
-    <li><%= link_to 'Relatórios', '#' %></li>
-    <li><%= link_to 'Sair', destroy_user_session_path, :method => :delete %>  </li>
+    <li class="brand"><%= link_to fa_icon('home 2x'), '#' %></li>
+    <li><%= link_to fa_icon('tachometer'), '#' %></li>
+    <li class="selected"><%= link_to fa_icon('arrow-left'), expenses_path %></li>
+    <li><%= link_to fa_icon('arrow-right'), incomes_path %></li>
+    <li><%= link_to fa_icon('tags'), '#' %></li>
+    <li><%= link_to fa_icon('credit-card'), '#' %></li>
+    <li><%= link_to fa_icon('area-chart'), '#' %></li>
+    <li><%= link_to fa_icon('sign-out'), destroy_user_session_path, :method => :delete %>  </li>
   </ul>
 </nav>
