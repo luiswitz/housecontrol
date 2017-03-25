@@ -1,12 +1,12 @@
 <nav id="sidebar">
   <ul>
     <li class="brand"><%= link_to fa_icon('home 2x'), '#' %></li>
-    <li><%= link_to fa_icon('tachometer'), '#' %></li>
-    <li class="selected"><%= link_to fa_icon('arrow-left'), expenses_path %></li>
-    <li><%= link_to fa_icon('arrow-right'), incomes_path %></li>
-    <li><%= link_to fa_icon('tags'), '#' %></li>
-    <li><%= link_to fa_icon('credit-card'), '#' %></li>
-    <li><%= link_to fa_icon('area-chart'), '#' %></li>
+    <li class="<%= active?('#') %>"><%= link_to fa_icon('tachometer'), '#' %></li>
+    <li class="<%= active?(expenses_path) %>"><%= link_to fa_icon('arrow-left'), expenses_path %></li>
+    <li class="<%= active?(incomes_path) %>"><%= link_to fa_icon('arrow-right'), incomes_path %></li>
+    <li class="<%= active?('#') %>"><%= link_to fa_icon('tags'), '#' %></li>
+    <li class="<%= active?('#') %>"><%= link_to fa_icon('credit-card'), '#' %></li>
+    <li class="<%= active?('#') %>"><%= link_to fa_icon('area-chart'), '#' %></li>
     <li><%= link_to fa_icon('sign-out'), destroy_user_session_path, :method => :delete %>  </li>
   </ul>
 </nav>

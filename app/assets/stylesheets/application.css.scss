@@ -1,20 +1,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'custom';
 @import 'sidebar';
 @import 'header';
 @import 'font-awesome';
-
-html,
-body,
-#main {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    background-color: #252830;
-    color: #cfd2da;
-}
-
-#content {
-  padding: 15px 0px 10px 200px;
-}
