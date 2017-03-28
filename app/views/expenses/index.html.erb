@@ -15,17 +15,9 @@
         <th>Data</th>
         <th>Categoria</th>
       </thead>
-      <tbody>
-        <% @expenses.each do |expense| %>
-          <tr>
-            <td><%= expense.is_payed? %></td>
-            <td><%= expense.description %></td>
-            <td><%= expense.value %></td>
-            <td><%= expense.date %></td>
-            <td><%= expense.category.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
+        <tbody id="expenses">
+          <%= render @expenses %>
+        </tbody>
     </table>
   </div>
 </div>
