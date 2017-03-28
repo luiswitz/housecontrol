@@ -7,7 +7,7 @@ class Expense < ApplicationRecord
   validates :value, numericality: { greater_than: 0 }
 
   def self.years_range
-    Expense.uniq.pluck('extract(year from date)').map(&:to_i)
+    Expense.distinct.pluck('extract(year from date)').map(&:to_i)
   end
 
   ransacker :month do
