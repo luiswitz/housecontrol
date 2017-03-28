@@ -2,7 +2,9 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: [:edit]
 
   def index
-    @expenses = current_user.expenses
+    @filtered_month = params[:q].present? ? params[:q][:month_eq].to_i : Date.today.month
+    @search = current_user.expenses.search(params[:q])
+    @expenses = @search.result
   end
 
   def new

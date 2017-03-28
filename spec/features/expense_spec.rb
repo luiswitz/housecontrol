@@ -24,7 +24,31 @@ describe "navigate" do
       expense1 = FactoryGirl.create(:expense, user: @user)
       expense2 = FactoryGirl.create(:expense, user: @user)
       visit expenses_path
-      expect(page).to have_content(/Normal|expense/)
+      expect(page).to have_content(/#{expense1.description}|#{expense2.description}/)
+    end
+  end
+
+  describe "#search" do
+    before do
+      FactoryGirl.create(:expense, date: Date.new(2017,1,19), user: @user)
+      FactoryGirl.create(:expense, date: Date.new(2016,2,20), user: @user)
+      FactoryGirl.create(:expense, date: Date.new(2015,3,21), user: @user)
+      visit expenses_path
+    end
+
+    it "should have 3 years in select year filter" do
+      list = Array.new
+      list = find('#q_year_eq').all('option')
+
+      expect(list.size).to eq(3)
+    end
+
+    it "shows only January 2017 records" do
+      find('#q_year_eq').select('2017')
+      find('#q_month_eq_1').click
+      find('#refresh-search', visible: false).click
+
+      page.assert_selector('.table tbody tr', count: 1)
     end
   end
 
