@@ -1,17 +1,16 @@
 <%= search_form_for @search do |f| %>
   <div class="col-md-2">
     <div class="form-group">
-      <%= f.select(:year_eq, current_user.expenses.years_range, {}, {class: 'form-control', onchange: 'this.form.submit();'}) %>
+      <%= f.select(:year_eq, current_user.expenses.years_range, {}, {class: 'form-control'}) %>
     </div>
   </div>
 
   <div class="col-md-8">
     <div class="btn-group" data-toggle="buttons">
       <% (1..12).each do |month| %>
-        <label class="btn btn-primary <%= 'active' if @filtered_month == month %>">
-          <%= f.radio_button :month_eq, month, onclick: 'this.form.submit();' %>
-          <%= t('date.month_names')[month].slice(0,3) %>
-        </label>
+        <% active = 'active' if @filtered_month == month %>
+        <%= f.label "month_eq_#{month}", t('date.month_names')[month].slice(0,3), class: "btn btn-primary #{active}" %>
+        <%= f.radio_button :month_eq, month, style: "display: none;" %>
       <% end %>
     </div>
   </div>

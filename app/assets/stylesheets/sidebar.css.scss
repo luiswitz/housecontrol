@@ -1,9 +1,13 @@
 #sidebar {
   float: left;
-  background: #434857;
-  width: 70px;
+  // background: #35a355;
+  width: 170px;
   height: 100%;
-  font-size: 1.1em;
+  // font-size: 1.1em;
+  font-size: 0.9em;
+  // border-right: 2px solid #5fcf80;
+  z-index: 100;
+  position: fixed;
 
   ul {
     margin: 0;
@@ -13,18 +17,20 @@
 
   li {
     display: block;
-    height: 50px;
+    // height: 50px;
+    height: 35px;
     padding: 10px 25px 0 25px;
     width: 100%;
-    font-size: 20px;
-    background: #434857;
-    border-bottom: 1px solid #252830;
+    // font-size: 20px;
+    // background: #434857;
+    // border-bottom: 1px solid #252830;
   }
 
   a {
     display: block;
     text-decoration: none;
-    color: #cfd2da;
+    // color: #cfd2da;
+    color: #24292e;
   }
 
   a:hover {
@@ -32,19 +38,25 @@
   }
 
   .brand {
-    background: #0f1013;
-    height: 70px;
-    padding: 15px 10px 0 15px;
+    // background: #0f1013;
+    // background: #ffffff;
+    height: 50px;
+    padding: 15px 10px 0 15#4b5658px;
+    border-bottom: 1px solid #d0d1cf;
     a {
-      color: #586069;
+      // color: #586069;
+      color: #4b5658;
     }
   }
 
   .active {
-    background-color: #252830;
+    // background-color: #252830;
+    // background-color: #5fcf80;
+    border-left: 5px solid #252830;
+    padding-left: 20px;
     a {
       // color: #586069;
-      color: #f98d00;
+      // color: #f98d00;
     }
   }
 

@@ -3,17 +3,13 @@
   <head>
     <title>Housecontrol</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="container-fluid" id="main">
-      <%= render 'shared/sidebar' if user_signed_in?  %>
-      <div class="row" id="content">
-        <div class="col-md-10">
-          <%= yield %>
-        </div>
-      </div>
+    <%= render 'shared/header' if user_signed_in?  %>
+    <div class="container">
+      <%= yield %>
     </div>
   </body>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

@@ -45,7 +45,7 @@ describe "navigate" do
 
     it "shows only January 2017 records" do
       find('#q_year_eq').select('2017')
-      find('#q_month_eq_1').click
+      find('#q_month_eq_1', visible: false).click
       find('#refresh-search', visible: false).click
 
       page.assert_selector('.table tbody tr', count: 1)
