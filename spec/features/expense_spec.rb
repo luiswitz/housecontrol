@@ -55,7 +55,7 @@ describe "navigate" do
   describe "new" do
     it "should has a link from the expenses list" do
       visit expenses_path
-      click_link "Nova"
+      click_link "Despesa Simples"
       expect(page.status_code).to eq(200)
     end
   end

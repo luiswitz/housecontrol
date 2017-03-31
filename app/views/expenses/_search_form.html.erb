@@ -9,14 +9,23 @@
     <div class="btn-group" data-toggle="buttons">
       <% (1..12).each do |month| %>
         <% active = 'active' if @filtered_month == month %>
-        <%= f.label "month_eq_#{month}", t('date.month_names')[month].slice(0,3), class: "btn btn-primary #{active}" %>
+        <%= f.label "month_eq_#{month}", t('date.month_names')[month].slice(0,3), class: "btn btn-default #{active}" %>
         <%= f.radio_button :month_eq, month, style: "display: none;" %>
       <% end %>
     </div>
   </div>
 
   <div class="col-md-2">
-    <%= link_to 'Nova', new_expense_path, class: 'btn btn-primary pull-right' %>
+    <div class="btn-group pull-right">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= fa_icon("plus") + " " %> <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><%= link_to 'Despesa Simples', new_expense_path %></li>
+        <li><%= link_to 'Desepesa no Cartão de Crédito', new_credit_card_expense_path %></li>
+        <li><a href="#">Despesa Parcelada</a></li>
+      </ul>
+    </div>
   </div>
   <%= f.submit 'Atualizar', id: 'refresh-search', style: "display: none;" %>
 <% end %>
