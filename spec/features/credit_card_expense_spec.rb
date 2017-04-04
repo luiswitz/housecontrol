@@ -9,7 +9,7 @@ describe "navigate" do
   end
 
   describe "new" do
-    it "should has a link from the expenses list" do
+    xit "should has a link from the expenses list" do
       visit new_credit_card_expense_path
       expect(page.status_code).to eq(200)
     end
@@ -20,7 +20,7 @@ describe "navigate" do
       visit new_credit_card_expense_path
     end
 
-    it "can be created from new form page" do
+    xit "can be created from new form page" do
       fill_in 'expense[description]', with: 'Some credit card expense'
       fill_in 'expense[value]', with: 9.99
       fill_in 'expense[date]', with: Date.today

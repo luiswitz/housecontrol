@@ -16,8 +16,8 @@ RSpec.describe Expense, type: :model do
       expect(@expense).to_not be_valid
     end
 
-    it "cannot be valid without a date" do
-      @expense.date = nil
+    it "cannot be valid without a date of payment" do
+      @expense.paid_at = nil
       expect(@expense).to_not be_valid
     end
 

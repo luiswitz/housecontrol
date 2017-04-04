@@ -8,7 +8,7 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @expense = Expense.new
+    @expense = Expense.new(expensed_at: Date.today)
   end
 
   def create
@@ -28,11 +28,18 @@ class ExpensesController < ApplicationController
   private
 
     def expense_params
-        params.require(:expense).permit(:description, :value, :date, :category_id, :is_payed)
+        params.require(:expense).permit(:description, :value, :expensed_at, :category_id, :paid, :parceled, :credit_card_id)
     end
 
     def set_expense
       @expense = Expense.find(params[:id])
+    end
+
+    def calculate_parcels(total_value, number_of_parcels, initial_date)
+      parcels = []
+      value = total_value / number_of_parcels
+      number_of_parcels.times { parcels << Expense.new(value: value, due_date: '') }
+      parcels
     end
 
 end
