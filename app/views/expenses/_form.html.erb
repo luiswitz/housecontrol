@@ -35,7 +35,7 @@
   <div class="form-group row">
     <div class="col-md-12">
       <%= f.label 'Cartão de Crédito', style: 'display: none;' %>
-      <%= f.select :credit_card_id, current_user.credit_cards.collect {|c| [ c[0].capitalize, c[1] ] }, {prompt: 'Escolha um cartão de crédito' }, class: 'form-control', style: 'display: none' %>
+      <%= f.select :credit_card_id, current_user.credit_cards.collect {|c| [ c.name, c.id ] }, {prompt: 'Escolha um cartão de crédito' }, class: 'form-control', style: 'display: none' %>
     </div>
   </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404013721) do
+ActiveRecord::Schema.define(version: 20170404112025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170404013721) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "user_id"
+    t.decimal  "limit"
+    t.integer  "closing_at"
     t.index ["credit_card_flag_id"], name: "index_credit_cards_on_credit_card_flag_id", using: :btree
     t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
