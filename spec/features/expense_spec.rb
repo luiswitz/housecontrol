@@ -74,6 +74,7 @@ describe "navigate" do
       fill_in 'expense[value]', with: 9.99
       fill_in 'expense[expensed_at]', with: Date.today
       select "#{@category.name}", :from => "expense[category_id]"
+      select "Money", :from => "expense[form_of_payment]"
       expect { click_on 'Adicionar'}.to change(Expense, :count).by(1)
     end
   end

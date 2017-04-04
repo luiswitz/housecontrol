@@ -26,6 +26,11 @@ RSpec.describe Expense, type: :model do
       expect(@expense).to_not be_valid
     end
 
+    it "cannot be valid without a form of payment" do
+      @expense.form_of_payment = nil
+      expect(@expense).to_not be_valid
+    end
+
     it "cannot be valid without an user" do
       @expense.user = nil
       expect(@expense).to_not be_valid

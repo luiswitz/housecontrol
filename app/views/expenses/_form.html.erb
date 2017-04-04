@@ -28,7 +28,7 @@
   <div class="form-group row">
     <div class="col-md-12">
       <%= f.label 'Forma de Pagamento'%>
-      <%= f.select :form_of_payment, Expense.form_of_payments.collect {|c| [ c[0].capitalize, c[1] ] }, {prompt: 'Forma de Pagamento' }, class: 'form-control' %>
+      <%= f.select :form_of_payment, Expense.form_of_payments.collect {|c| [ c[0].capitalize, c[0] ] }, {prompt: 'Forma de Pagamento' }, class: 'form-control' %>
     </div>
   </div>
 

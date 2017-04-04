@@ -6,7 +6,7 @@ class Expense < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  validates_presence_of :value, :category, :expensed_at, :user
+  validates_presence_of :value, :category, :expensed_at, :form_of_payment, :user
   validates :value, numericality: { greater_than: 0 }
 
   def self.years_range
