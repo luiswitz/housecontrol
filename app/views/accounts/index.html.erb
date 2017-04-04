@@ -15,7 +15,10 @@
   </thead>
   <tbody>
     <% @accounts.each do |a| %>
-      <td><%= a.name %></td>
+      <tr>
+        <td><%= a.name %></td>
+        <td></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
