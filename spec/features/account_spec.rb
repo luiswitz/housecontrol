@@ -6,6 +6,23 @@ describe "navigate" do
     login_as(@user)
   end
 
+  def index
+    before do
+      visit accounts_path
+    end
+
+    it "has a Contas title" do
+      expect(page).to have(/Contas/)
+    end
+
+    it "has a accounts list" do
+      account1 = FactoryGirl.create(:account, user: @user)
+      account2 = FactoryGirl.create(:account, user: @user)
+      visit accounts_path
+      expect(page).to have_content(/#{account1.name}|#{account2.name}/)
+    end
+  end
+
   describe "creation" do
     before do
       visit new_account_path

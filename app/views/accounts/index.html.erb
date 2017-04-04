@@ -1,1 +1,21 @@
 <h2>Contas</h2>
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to fa_icon("plus"), new_account_path, class: "btn btn-default pull-right" %>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Saldo atual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |a| %>
+      <td><%= a.name %></td>
+    <% end %>
+  </tbody>
+</table>
