@@ -30,9 +30,9 @@ describe "navigate" do
 
   describe "#search" do
     before do
-      FactoryGirl.create(:expense, date: Date.new(2017,1,19), user: @user)
-      FactoryGirl.create(:expense, date: Date.new(2016,2,20), user: @user)
-      FactoryGirl.create(:expense, date: Date.new(2015,3,21), user: @user)
+      FactoryGirl.create(:expense, expensed_at: Date.new(2017,1,19), user: @user)
+      FactoryGirl.create(:expense, expensed_at: Date.new(2016,2,20), user: @user)
+      FactoryGirl.create(:expense, expensed_at: Date.new(2015,3,21), user: @user)
       visit expenses_path
     end
 
@@ -72,7 +72,7 @@ describe "navigate" do
     it "can be created from new form page" do
       fill_in 'expense[description]', with: 'Some expense'
       fill_in 'expense[value]', with: 9.99
-      fill_in 'expense[date]', with: Date.today
+      fill_in 'expense[expensed_at]', with: Date.today
       select "#{@category.name}", :from => "expense[category_id]"
       expect { click_on 'Adicionar'}.to change(Expense, :count).by(1)
     end

@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 20170404013721) do
     t.integer  "credit_card_id"
     t.integer  "category_id"
     t.date     "payment_date"
+    t.boolean  "paid"
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.boolean  "paid"
     t.integer  "form_of_payment"
     t.boolean  "parceled"
     t.index ["category_id"], name: "index_expenses_on_category_id", using: :btree
