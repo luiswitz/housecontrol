@@ -6,6 +6,8 @@ class Expense < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
+  has_many :parcels
+
   validates_presence_of :value, :category, :expensed_at, :form_of_payment, :user
   validates :value, numericality: { greater_than: 0 }
 
