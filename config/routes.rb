@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'expenses/create_parcels'
   resources :credit_card_expenses
   resources :incomes
   resources :expenses

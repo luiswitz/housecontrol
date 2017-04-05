@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Parcela</th>
+      <th>Vencimento</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @parcels.times do |i| %>
+    <tr>
+      <td><%= i + 1 %></td>
+      <td><input type="date" name="expense[parcels_attributes][<%= i %>][due_date]" value="" class="form-control"></td>
+      <td><input type="number" name="expense[parcels_attributes][<%= i %>][value]" value="" class="form-control"></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

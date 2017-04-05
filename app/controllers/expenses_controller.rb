@@ -21,6 +21,14 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def create_parcels
+    # puts params[:f]
+    @parcels = params[:parcels].to_i
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def edit
 
   end
@@ -28,7 +36,7 @@ class ExpensesController < ApplicationController
   private
 
     def expense_params
-        params.require(:expense).permit(:description, :value, :expensed_at, :category_id, :paid, :parceled, :credit_card_id, :form_of_payment)
+        params.require(:expense).permit(:description, :value, :expensed_at, :category_id, :paid, :parceled, :credit_card_id, :form_of_payment, :parcels => [:value])
     end
 
     def set_expense
