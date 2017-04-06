@@ -15,6 +15,14 @@ form_of_payment.change ->
     credit_card_id.css('display', 'block')
     credit_card_id.prev('label').css('display', 'block')
 
+generate_parcels = ->
+  $.get
+    url: 'create_parcels'
+    data:
+      parcels: $('#number_of_parcels').val()
+      total_value: $('#expense_value').val()
+      expensed_at: $('#expense_expensed_at').val()
+
 parceled = $('#expense_parceled')
 number_of_parcels = $('#number-of-parcels')
 parceled.click ->
@@ -23,9 +31,6 @@ parceled.click ->
   else
     number_of_parcels.css('display', 'none')
 
-number_of_parcels.change ->
-  $.get
-    url: 'create_parcels'
-    data: {
-      parcels: 10
-    }
+$('#expense_value, #number-of-parcels, #expense_expensed_at').change ->
+  if parceled.is(':checked') && $('#number_of_parcels').val() != ""
+    do generate_parcels

@@ -22,8 +22,11 @@ class ExpensesController < ApplicationController
   end
 
   def create_parcels
-    # puts params[:f]
-    @parcels = params[:parcels].to_i
+    @parcels = []
+    n_parcels = params[:parcels].to_i
+    total = params[:total_value].to_f
+    expensed_at = params[:expensed_at]
+    n_parcels.times { |i| @parcels << Parcel.new(number: i + 1, value: total / n_parcels, due_date: expensed_at.to_date + (i+1).months ) }
     respond_to do |format|
       format.js
     end

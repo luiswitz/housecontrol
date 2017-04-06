@@ -7,11 +7,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @parcels.times do |i| %>
+    <% @parcels.each do |p| %>
     <tr>
-      <td><%= i + 1 %></td>
-      <td><input type="date" name="expense[parcels_attributes][<%= i %>][due_date]" value="" class="form-control"></td>
-      <td><input type="number" name="expense[parcels_attributes][<%= i %>][value]" value="" class="form-control"></td>
+      <td><%= p.number %></td>
+      <td><input type="date" name="expense[parcels_attributes][<%= p.number-1 %>][due_date]" value="<%= p.due_date %>" class="form-control"></td>
+      <td><input type="number" name="expense[parcels_attributes][<%= p.number-1 %>][value]" value="<%= p.value %>" class="form-control"></td>
     </tr>
     <% end %>
   </tbody>
