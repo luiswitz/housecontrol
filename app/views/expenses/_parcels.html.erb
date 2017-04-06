@@ -9,6 +9,7 @@
   <tbody>
     <% @parcels.each do |p| %>
     <tr>
+      <input type="hidden" name="expense[parcels_attributes][<%= p.number-1 %>][number]" value="<%= p.number %>">
       <td><%= p.number %></td>
       <td><input type="date" name="expense[parcels_attributes][<%= p.number-1 %>][due_date]" value="<%= p.due_date %>" class="form-control"></td>
       <td><input type="number" name="expense[parcels_attributes][<%= p.number-1 %>][value]" value="<%= p.value %>" class="form-control"></td>
