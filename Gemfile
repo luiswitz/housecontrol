@@ -10,21 +10,12 @@ gem 'rails', '~> 5.2.3'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'devise'
-gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
-gem 'bootstrap-sass'
-gem 'font-awesome-rails'
-gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails','~> 3.0'
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
 end
 
