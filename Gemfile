@@ -14,6 +14,7 @@ gem 'sass-rails', '~> 5.0'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails','~> 3.0'
+  gem 'shoulda-matchers'
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'faker'
