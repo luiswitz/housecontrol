@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 user = User.create(name: 'User Test', email: 'test@test.com', password: 'asdfasdf', password_confirmation: 'asdfasdf')
 
 Category.create(name: 'Combustível', user: user, kind: :expense)
@@ -14,7 +16,6 @@ CreditCardFlag.create(name: 'Visa')
 CreditCardFlag.create(name: 'Master Card')
 CreditCardFlag.create(name: 'American Express')
 CreditCardFlag.create(name: 'Elo')
-
 
 offset = rand(CreditCardFlag.count)
 CreditCard.create(name: 'Santander Fit', credit_card_flag: CreditCardFlag.offset(offset).first, due_date: 10, closing_at: 27, limit: 5000.00, user: user)
