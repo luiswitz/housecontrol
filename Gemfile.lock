@@ -78,6 +78,7 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.3)
+    koine-attributes (1.2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -198,6 +199,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  koine-attributes
   listen (~> 3.0.5)
   pg
   puma (~> 3.0)

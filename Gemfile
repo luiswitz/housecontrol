@@ -7,6 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'koine-attributes'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.2.3'
