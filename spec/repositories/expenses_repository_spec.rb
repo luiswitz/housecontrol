@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Repositories::ExpenseRepository do
+RSpec.describe ExpenseRepository do
   subject do
     described_class.new(storage: storage)
   end
