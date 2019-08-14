@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-PROJECT_ROOT = File.expand_path('../../', __FILE__)
+PROJECT_ROOT = File.expand_path('..', __dir__)
 
-$LOAD_PATH.unshift(PROJECT_ROOT) unless $LOAD_PATH.include?(PROJECT_ROOT)
+$:.unshift(PROJECT_ROOT) unless $:.include?(PROJECT_ROOT)
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -16,12 +16,21 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
 
+require 'object_comparator/rspec'
+
+# App Dependencies
+require 'app/app_dependencies'
+
 # Entities
 require 'app/entities/base'
 require 'app/entities/expense_entity'
 
+# Factories
+require 'app/factories/service_factory'
+require 'app/factories/expenses_repository_factory'
+
 # Repositories
-require 'app/repositories/expense_repository'
+require 'app/repositories/expenses_repository'
 
 # Services
 require 'app/services/create_expense_service'
