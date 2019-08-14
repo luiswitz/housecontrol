@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Storages::ExpensesStorage do
+RSpec.describe ExpensesStorage do
   subject do
     described_class.new
   end
