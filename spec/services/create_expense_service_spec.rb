@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Services::CreateExpenseService do
+RSpec.describe CreateExpenseService do
   subject do
     described_class.new(repository: repository)
   end
