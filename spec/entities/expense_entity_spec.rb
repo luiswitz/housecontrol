@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Entities::Expense do
+RSpec.describe ExpenseEntity do
   subject do
     described_class.new(
       description: 'the-description',
