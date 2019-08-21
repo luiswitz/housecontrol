@@ -1,27 +1,29 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe ExpenseRepository do
+RSpec.describe ExpensesRepository do
   subject do
     described_class.new(storage: storage)
   end
-  
+
   let(:storage) { double(:storage) }
   let(:create) { subject.create(expense_payload) }
 
   let(:expense_payload) do
     {
-      "queryText": 'some expense input',
-      "parameters": {
-        "number-integer": '',
-        "date-time": '2019/08/18',
-        "installment": '',
-        "number1": '',
-        "unit-currency": '',
-        "number": '10',
-        "expense-category": 'the-category',
-        "date-time1": ''
+      query_text: 'some expense input',
+      parameters: {
+        number_integer: '',
+        date_time: '2019/08/18',
+        installment: '',
+        number1: '',
+        unit_currency: '',
+        number: '10',
+        expense_category: 'the-category',
+        date_time1: ''
       },
-      "languageCode": 'pt-br'
+      language_code: 'pt-br'
     }
   end
 

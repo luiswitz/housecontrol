@@ -1,4 +1,6 @@
-class ExpenseRepository
+# frozen_string_literal: true
+
+class ExpensesRepository
   def initialize(storage:)
     @storage = storage
   end
@@ -13,13 +15,21 @@ class ExpenseRepository
 
   def create_entity(expense)
     ExpenseEntity.new(
-      description: expense[:queryText],
+      description: expense[:query_text],
       amount: expense[:parameters][:number],
-      category: expense[:parameters][:'expense-category'],
-      due_date: expense[:parameters][:'date-time'],
+      category: expense[:parameters][:expense_category],
+      due_date: expense[:parameters][:date_time],
       status: 0
     )
   end
+
+  # def due_date(date)
+  #   unless date.empty?
+  #     return date
+  #   end
+  #
+  #   Date.today.to_s
+  # end
 
   attr_reader :storage
 end
