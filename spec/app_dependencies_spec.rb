@@ -10,4 +10,5 @@ RSpec.describe AppDependencies do
   end
 
   it_defines('repositories.expenses_repository')
+  it_defines('services.create_expense_service')
 end

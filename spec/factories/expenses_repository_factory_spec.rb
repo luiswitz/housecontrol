@@ -26,7 +26,7 @@ RSpec.describe ExpensesRepositoryFactory do
 
   describe '#create_service' do
     let(:expected_service) do
-      ExpenseRepository.new(storage: storage)
+      ExpensesRepository.new(storage: storage)
     end
 
     it 'returns an expense repository instance' do

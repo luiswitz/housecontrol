@@ -6,6 +6,6 @@ class ExpensesRepositoryFactory < ServiceFactory
 
   def create_service(_container)
     storage = ExpensesStorage.new
-    ExpenseRepository.new(storage: storage)
+    ExpensesRepository.new(storage: storage)
   end
 end
