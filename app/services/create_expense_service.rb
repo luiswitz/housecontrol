@@ -6,12 +6,14 @@ class CreateExpenseService
   end
 
   def create_expense(expense_params)
-    unless installment?(expense_params)
-      create_installment_expense(expense_params)
+    params = hash_utils.deep_symbolize(expense_params)
+
+    unless installment?(params)
+      create_installment_expense(params)
       return
     end
 
-    repository.create(expense_params)
+    repository.create(params)
   end
 
   private
@@ -25,6 +27,7 @@ class CreateExpenseService
     if times
       return times[0].to_i
     end
+
     return 1
   end
 
@@ -32,6 +35,10 @@ class CreateExpenseService
     installment_times(expense_params).times do
       repository.create(expense_params)
     end
+  end
+
+  def hash_utils
+    HashUtils::KeySymbolizer.new
   end
 
   attr_reader :repository
