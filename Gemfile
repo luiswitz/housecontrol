@@ -7,6 +7,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'koine-attributes'
+gem 'nurse-rb'
 gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.2.3'
@@ -15,8 +17,8 @@ gem 'rubocop', '~> 0.74.0', require: false
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
-  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'object_comparator'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda-matchers'
 end
