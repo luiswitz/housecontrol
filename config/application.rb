@@ -10,5 +10,9 @@ Bundler.require(*Rails.groups)
 
 module Housecontrol
   class Application < Rails::Application
+    config.autoload_paths += %W[
+      #{config.root}/lib
+      #{config.root}/app
+    ]
   end
 end

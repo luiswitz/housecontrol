@@ -26,8 +26,12 @@ require 'app/entities/base'
 require 'app/entities/expense_entity'
 
 # Factories
-require 'app/factories/service_factory'
+require 'app/factories/service_factory' # load first
+require 'app/factories/create_expense_service_factory'
 require 'app/factories/expenses_repository_factory'
+
+# Lib
+require 'lib/hash_utils/key_symbolizer'
 
 # Repositories
 require 'app/repositories/expenses_repository'
