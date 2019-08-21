@@ -5,7 +5,10 @@ class ExpenseEntity < Entities::Base
     attribute :description, :string
     attribute :amount, :float
     attribute :category, :string
-    attribute :due_date, :date
+    attribute :due_date, :any, lambda { |adapter|
+      adapter.with_nil_value
+      adapter.with_default_value(Date.today.to_s)
+    }
     attribute :status, :integer
   end
 end
