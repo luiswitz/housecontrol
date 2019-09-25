@@ -16,15 +16,10 @@ services:
     depends_on:
       - 'postgres'
     build: .
+    env_file: .env.production
     command: bash start.sh
-    volumes:
-      - '.:/expensescontrol'
     volumes_from:
       - box
-    environment:
-      - DB_HOST=postgres
-      - HOUSECONTROL_DATABASE_USERNAME=postgres
-      - HOUSECONTROL_DATABASE_PASSWORD=postgres
 
   box:
     image: busybox

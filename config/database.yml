@@ -15,7 +15,7 @@ default: &default
   pool: 5
   username: <%= ENV['HOUSECONTROL_DATABASE_USERNAME'] %>
   password: <%= ENV['HOUSECONTROL_DATABASE_PASSWORD'] %>
-  host: localhost
+  host: <%= ENV['DB_HOST'] %>
 
 development:
   <<: *default
@@ -50,5 +50,3 @@ test:
 production:
   <<: *default
   database: housecontrol_production
-  username: housecontrol
-  password: <%= ENV['HOUSECONTROL_DATABASE_PASSWORD'] %>
