@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+        - name: server
+          image: luiswitz/expensescontrol-server
+          imagePullPolicy: "Always"
+          env:
+            - name: RAILS_ENV
+              value: production
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: '6379'
+            - name: DATABASE_NAME
+              value: housecontrol_production
+            - name: DB_HOST
+              value: postgres-cluster-ip-service
+            - name: DB_PORT
+              value: '5432'
+            - name: HOUSECONTROL_DATABASE_USERNAME
+              value: postgres
+            - name: HOUSECONTROL_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: dbpassword
+                  key: DB_PASSWORD
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: secret-key-base
+                  key: SECRET_KEY_BASE
+          command: ["/bin/sh", "-c"]
+          args:
+            - bundle install;
+              bundle exec rails server -e production --binding 0.0.0.0
+          ports:
+            - containerPort: 3000
