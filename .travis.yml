@@ -2,30 +2,26 @@ sudo: required
 dist: trusty
 language: ruby
 rvm:
-  - 2.6.3
+- 2.6.3
 services:
-  - docker
-env:
-  global:
-  - secure: WfDd4MpVGDYHBmfIQDIjFL6LcKO9pi/+wmHcK7HfSEK7gnJ9P+SHaoeiG5opVUwi8Okh/qpdHs/NWbfvAf0oe+E/+jtgOduTAsrV5ORE94PYT0ruy/WpG5Vz+kOKHOtAjzl+BEB96OeKhLlFJaLJXI3JDK7841V3CQV9Ww8Bs5/g5/8lTLT58F6cJ2MXnl2mKp+WfVdWq0g8AswGf1INQTquWbw9ghWlyreiwDX0VEY9ebkYyOwN8mLeddxVMjViOHHEMw8r5BLs3pTrxcNTKrCROsXY5tBQRlWaKoSD0u9D5qmTWoKpFS+yBvL5Qpy3cL7q7Z5Cn1lrSf8HcznHWhrgmXWKD8Wkg5SLxFmgSJAzettYRYkrRTdWLSb6/7QnkK5spqiUlveI0Yqo/gG+g4QThnhcvpZ1SLKYgwbPGpEuqdnvbHW3/WZkCy0nXvmOcADFe+cmyha5YPZeyXJUTcTnlwy8h+iftzHu+FpEvuSBx15EWJ16Qm5hGkuBmlu7/pggI55zEqGq5NGBTOxQWY3z/bQ/vpf196Tdd2Ond2lQUBIx5aqN7XWnfebAm8f6yBj69C2Q18rFtXuJRMAwGcyfqlkwv0r86Y8r6vFu1B57TNdGkYTPOz2C0n1TwYYauGkZiEKMhbzyCpMTvBkW6RgKUOMs6h2s9HVO7xC399w=
-  - secure: D6Na/FQZ2MsJML3VlQcruh99IwH3XsadMGI3J7CFAHcKeReGOOujVIxlbo70VFBLbaKq6zVMT7iUyRyB6UbWZiO9BPDlKsC3g+IwbLr8iMTQ9uHM2ICB1RpZtfcIWRe5ngzF1k2opPmRWXcyV1qrAwGJ/gqc0nThKMi6vJBKonO1EVDyqC5dOSLURUq3QldfpPSOuV8H/sNa9Dr2uE8T1rZ1H/HqMmvv80tZ60CfHNu4jYWcgPyM5NnprWyq+zli/+olbtVqSDaz2A6IxOIUmAyTifhXGJrOiXtpQ1Q1j5kGBfS8dt2JFa18R47lvh/eOiSycjLLe/ewrvS7BKWMnIGn93ztUNXUA0bXx4o27WbAaZipVJx2S0hyxSe8VVe41TeqwBbMfnW+90dkDg42tdsmS/k6v+8Xz6TDlQWAcoYbMbj5xH+WYlZd91dUCUzVdU8HcCDNF8z+0A+Gzir9pJ7uh6BLsY2WwCEm6cqxd5Rhir2EVx6X6ItfSXMuG7h1btIxbULvHIgG5k1ltc4ysgwmpk3PybFIpkx+4dgGdh1mygwXXGQ21+4lR/kJiWbGzD7uY/dtk2nvitt22qvflHGeWPW/hOqoD7I1eU6S70r25RDXvR12YVp4YDasOATZDUE7ZqfGcTwDCoaYDkvqGTG8HXAisOZMeVlATXOzs5Y=
-  - secure: NbmiQboQVrbWq6b9S9XW9Kzqkx5b4WPTu55WepLm4f+eMCTuiNVZHKz7ZRIpAb4qKJnEl2Rch5k5Fb0QBNJM8iCN215icw3bb38NDe6duLMwA2Pvenr60Zp8B8DnLeqK7+SWhnslogS5DpqPGAlvGQxlEPueTeh+/tjFzusyPS0E7JAw1n5cG0mBXK1dWO+yrqfaaLhP/BUb5NPJGkorYhf7ZlsKqc77Ix7vM7rFZ3lQAkAfBDZoRWffH5FR4ViYDoHsCllUqV+IqCv9AvY28Et7Zs12PARe0SRpX3yG1uzWscZEvYWaDRo34kwFF/EdFcGpII/re5E1Y5gbvkkqPlgUreHkTyBW9V1pRe5loeDoJH1R5hekbHUhSmqyaaSgF/H0odyDdERSlqkLKczBfYEnjgH+LgH/dYLFQAlZZabgrBGGcF25yAOXzUk2kFdEhhgcsOdrwVOWzDRKF44ZZ3h7p/M+a3cIHzzLhvgayNCNDGWAE3ACsvpz3VUjeVEJO7hXcI2Nduvl8He/Dzu3w+UqLgiQT6fMDLtZaV5hzfbHcTt+c5DNDwUNwRiEk2tfKCqRK+JD4dokEkGCTKvkSVb0FNhJLSU89I42+uUlJmEmtXNmAwEqXoWwFI2kFX+N3q8t7CNxn6mS5sotJeAX9wvJZXghmeKZXu4GFhKETXc=
+- docker
 before_install:
-  - gem update --system
-  - gem install bundler
-  - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
-  - openssl aes-256-cbc -K $encrypted_21c873d1cdfb_key -iv $encrypted_21c873d1cdfb_iv
-    -in deploy_key.enc -out ./deploy_key -d
-  - docker build -t luiswitz/expensescontrol-server . 
-  - docker run -d --name backend expensescontrol-server
-  - docker ps -a
+- gem update --system
+- gem install bundler
+- docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
+- openssl aes-256-cbc -K $encrypted_21c873d1cdfb_key -iv $encrypted_21c873d1cdfb_iv
+  -in deploy_key.enc -out ./deploy_key -d
+- docker build -t luiswitz/expensescontrol-server .
+- docker run -d --name backend expensescontrol-server
+- docker ps -a
 script:
-  - docker exec backend rails db:create
-  - docker exec backend rails db:migrate
-  - docker tag expensescontrol-server:latest $DOCKER_HUB_USERNAME/expensescontrol-server:production
-  - docker push $DOCKER_HUB_USERNAME/expensescontrol-server:production
+- docker exec backend rails db:create
+- docker exec backend rails db:migrate
+- docker tag expensescontrol-server:latest $DOCKER_HUB_USERNAME/expensescontrol-server:production
+- docker push $DOCKER_HUB_USERNAME/expensescontrol-server:production
 deploy:
   provider: script
-  script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no - i deploy_key $DEPLOY_USER@DEPLOY_HOST deploy.sh
+  script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no - i deploy_key $DEPLOY_USER@DEPLOY_HOST
+    deploy.sh
   on:
     branch: master
