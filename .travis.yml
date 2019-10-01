@@ -12,6 +12,7 @@ before_install:
     -in deploy_key.enc -out ./deploy_key -d
 script:
   - docker-compose -f docker-compose-production.yml build
+  - docker-compose -f docker-compose-production.yml run --rm backend bundle install
   - docker-compose -f docker-compose-production.yml run --rm backend bundle exec rails db:create db:migrate 
 deploy:
   provider: script
