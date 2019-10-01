@@ -17,7 +17,10 @@ services:
       - 'postgres'
     build: .
     env_file: .env.production
-    command: bash start.sh
+    command:
+      - rails db:create
+      - rails db:migrate
+      - bash start.sh
     volumes_from:
       - box
 
