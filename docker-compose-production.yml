@@ -1,18 +1,6 @@
 version: '2'
 
 services:
-  setup:
-    build: .
-    depends_on:
-      - 'postgres'
-      - 'box'
-    command: 
-      - 'ls -la'
-      # - './bin/rails db:create'
-      # - './bin/rails db:migrate'
-    volumes_from:
-      - box
-
   postgres:
     image: 'postgres:11.4'
     volumes:
@@ -27,7 +15,6 @@ services:
   backend:
     depends_on:
       - 'postgres'
-      - 'setup'
     build: .
     command:
       - bash start.sh

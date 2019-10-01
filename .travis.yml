@@ -10,6 +10,7 @@ before_install:
   - gem install bundler
   - openssl aes-256-cbc -K $encrypted_21c873d1cdfb_key -iv $encrypted_21c873d1cdfb_iv
     -in deploy_key.enc -out ./deploy_key -d
+  - docker pull postgres:11.4
 script:
   - docker-compose -f docker-compose-production.yml build
   - docker-compose -f docker-compose-production.yml run --rm backend bundle install
