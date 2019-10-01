@@ -20,6 +20,7 @@ before_script:
 script:
   - RAILS_ENV=test ./bin/rake db:create
   - RAILS_ENV=test ./bin/rake db:migrate
+  - RAILS_ENV=test ./bin/bundle exec rspec
 
 deploy:
   provider: script
