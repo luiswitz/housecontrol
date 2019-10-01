@@ -5,9 +5,12 @@ services:
     build: .
     depends_on:
       - 'postgres'
+      - 'box'
     command: 
       - './bin/rails db:create'
       - './bin/rails db:migrate'
+    volumes_from:
+      - box
 
   postgres:
     image: 'postgres:11.4'
