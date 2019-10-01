@@ -7,8 +7,9 @@ services:
       - 'postgres'
       - 'box'
     command: 
-      - './bin/rails db:create'
-      - './bin/rails db:migrate'
+      - 'ls -la'
+      # - './bin/rails db:create'
+      # - './bin/rails db:migrate'
     volumes_from:
       - box
 
