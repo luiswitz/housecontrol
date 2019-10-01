@@ -16,3 +16,6 @@
 # Ignore Byebug command history file.
 .byebug_history
 /.env
+/.env.production
+deploy_key
+deploy_key.pub
