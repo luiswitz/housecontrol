@@ -13,8 +13,17 @@ env:
 before_install:
   - gem update --system
   - gem install bundler
+  - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
   - openssl aes-256-cbc -K $encrypted_21c873d1cdfb_key -iv $encrypted_21c873d1cdfb_iv
     -in deploy_key.enc -out ./deploy_key -d
+  - docker build -t luiswitz/expensescontrol-server . 
+  - docker run -d --name backend expensescontrol-server
+  - docker ps -a
+script:
+  - docker exec backend rails db:create
+  - docker exec backend rails db:migrate
+  - docker tag expensescontrol-server:latest $DOCKER_HUB_USER_NAME/expensescontrol-server:production
+  - docker push $DOCKER_HUB_USER_NAME/expensescontrol-server:production
 deploy:
   provider: script
   script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no - i deploy_key $DEPLOY_USER@DEPLOY_HOST deploy.sh
