@@ -15,9 +15,7 @@ services:
   backend:
     depends_on:
       - 'postgres'
-    build: .
-    command:
-      - bash start.sh
+    build: Dockerfile.production
     volumes_from:
       - box
 
