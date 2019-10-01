@@ -14,7 +14,7 @@ before_install:
     -in deploy_key.enc -out ./deploy_key -d
 
 before_script:
-  - psql -c 'create_database travis_ci_test' -U postgres
+  - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
 
 script:
