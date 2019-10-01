@@ -18,8 +18,6 @@ services:
     build: .
     env_file: .env.production
     command:
-      - rails db:create
-      - rails db:migrate
       - bash start.sh
     volumes_from:
       - box
