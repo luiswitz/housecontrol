@@ -3,6 +3,10 @@ dist: trusty
 language: ruby
 rvm:
   - 2.6.3
+addons:
+  apt:
+    packages:
+      - docker-ce
 services:
   - docker
 before_install:
