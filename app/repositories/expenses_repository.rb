@@ -23,13 +23,5 @@ class ExpensesRepository
     )
   end
 
-  # def due_date(date)
-  #   unless date.empty?
-  #     return date
-  #   end
-  #
-  #   Date.today.to_s
-  # end
-
   attr_reader :storage
 end
