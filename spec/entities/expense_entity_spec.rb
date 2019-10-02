@@ -28,16 +28,16 @@ RSpec.describe ExpenseEntity do
   end
 
   context 'when due_date is empty' do
-    let(:due_date) { '' }
+    let(:due_date) { nil }
 
     it 'returns today as default' do
-      expect(subject.due_date).to eq(Date.today)
+      expect(subject.due_date).to eq(Date.today.to_s)
     end
   end
 
   context 'when it has a valid due_date' do
     it 'returns the due_date value' do
-      expect(subject.due_date).to eq(Date.parse('2019/08/18'))
+      expect(subject.due_date).to eq(due_date)
     end
   end
 

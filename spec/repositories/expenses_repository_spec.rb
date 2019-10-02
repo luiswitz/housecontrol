@@ -32,7 +32,7 @@ RSpec.describe ExpensesRepository do
       description: 'some expense input',
       amount: 10.0,
       category: 'the-category',
-      due_date: Date.parse('2019/08/18'),
+      due_date: '2019/08/18',
       status: 0
     }
   end
