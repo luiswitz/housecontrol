@@ -21,10 +21,12 @@ script:
   - RAILS_ENV=test ./bin/rake db:create
   - RAILS_ENV=test ./bin/rake db:migrate
   - RAILS_ENV=test ./bin/bundle exec rspec
+  - echo $DEPLOY_USER
+  - echo $DEPLOY_HOST
 
 deploy:
   provider: script
   skip_cleanup: true
-  script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no - i deploy_key $DEPLOY_USER@$DEPLOY_HOST deploy.sh && print $DEPLOY_USER && print $DEPLOY_HOST
+  script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no - i deploy_key $DEPLOY_USER@$DEPLOY_HOST deploy.sh
   on:
     branch: fix-deploy
