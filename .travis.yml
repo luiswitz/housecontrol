@@ -20,7 +20,6 @@ script:
 deploy:
   provider: script
   skip_cleanup: true
-  script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key deploy@173.230.135.80
-  deploy.sh
+  script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key $DEPLOY_USER@$DEPLOY_HOST './deploy.sh'
   on:
     branch: fix-deploy
