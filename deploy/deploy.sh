@@ -1,6 +1,12 @@
-git pull origin git@github.com:luiswitz/expensescontrol.git
+DIR="expensescontrol"
 
-cd expenses_control
+if [ -d "$DIR" ]; then
+  cd $DIR
+  git pull origin https://github.com/luiswitz/expensescontrol.git
+else
+  git clone https://github.com/luiswitz/expensescontrol.git
+  cd $DIR
+fi
 
 docker-compose down
 docker-compose pull
