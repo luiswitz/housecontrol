@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  postgres:
+    image: 'postgres:11.4'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+
+  nginx:
+    restart: always
+    build: ./nginx
+    ports:
+      - '80:80'
+
+  backend:
+    depends_on:
+      - 'postgres'
+    build: .
+    command: bash start.sh
+    volumes:
+      - '.:/expensescontrol'
+    volumes_from:
+      - box
+
+  box:
+    image: busybox
+    volumes:
+      - /box
+      
+volumes:
+  postgres:
+  box:
